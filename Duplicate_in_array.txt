@@ -1,0 +1,38 @@
+
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+        // code here
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        // Arrays.sort(arr);
+        
+        // for(int i=0; i<arr.length-1; i++)
+        // {
+        //     if(arr[i]==arr[i+1])
+        //     {
+        //         if(list.contains(arr[i]))
+        //             continue;
+        //         list.add(arr[i]);
+        //     }
+        // }
+        
+        // MORE OPTIMIZED CODE
+        
+        for(int i=0; i<arr.length; i++)
+        {
+            int index = arr[i]%n;
+            arr[index] += n;
+        }
+        
+        for(int i=0; i<arr.length; i++)
+        {
+            if(arr[i]/n>1)
+            list.add(i);
+        }
+        
+        if(list.isEmpty())
+            list.add(-1);
+        
+        return list;
+    }
+}
