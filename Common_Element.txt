@@ -1,0 +1,50 @@
+class Solution
+{
+    ArrayList<Integer> commonElements(int A[], int B[], int C[], int n1, int n2, int n3) 
+    {
+        ArrayList list = new ArrayList<Integer>();
+        HashMap<Integer,Integer> map1 = new HashMap();
+        HashMap<Integer,Integer> map2 = new HashMap();
+        HashMap<Integer,Integer> map3 = new HashMap();
+        
+        // code here 
+        for(int i=0 ; i<n1; i++)
+        {
+            if(map1.containsKey(A[i]))
+            {
+                continue;
+            }
+            map1.put(A[i],1);
+        }
+        
+        for(int i=0 ; i<n2; i++)
+        {
+            if(map2.containsKey(B[i]))
+            {
+                continue;
+            }
+            map2.put(B[i],1);
+        }
+        
+        for(int i=0 ; i<n3; i++)
+        {
+         
+         if(map3.containsKey(C[i]))
+            {
+                continue;
+            }
+            map3.put(C[i],1);
+        }
+        
+        for(int i=0 ; i<n1; i++)
+        {
+            if(map1.containsKey(A[i]) && map2.containsKey(A[i]) && map3.containsKey(A[i]))
+            {
+                list.add(A[i]);
+                map1.remove(A[i]); // remove the added element so it can not be added again
+            }
+        }
+        
+        return list;
+    }
+}
