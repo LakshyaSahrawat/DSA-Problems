@@ -6,14 +6,19 @@ class Solution
         // code here
         Node prev = null;
         Node current = head;
-        Node next = null;
-        while (current != null) {
-            next = current.next;
+        Node next = current.next;
+        
+        while(next != null)
+        {
             current.next = prev;
             prev = current;
             current = next;
+            next = next.next;
         }
-        head = prev;
-        return head;
+        
+        current.next = prev;
+        prev = current;
+        
+        return prev;
     }
 }
