@@ -1,0 +1,39 @@
+class Solution
+{
+    int getMiddle(Node head)
+    {
+        int size = 0;
+        int n = 0;
+        int i = 1;
+        Node node = head;
+         // Your code here.
+         while(node != null)
+         {
+             node = node.next;
+             size++;
+         }
+        
+        node = head;
+         
+         if(size % 2 == 0)
+         {
+             n = size / 2 + 1;
+             while(i < n)
+             {
+                 node = node.next;
+                 i++;
+             }
+         }
+         else
+         {
+             n = size / 2 + 1;
+             while(i < n)
+             {
+                 node = node.next;
+                 i++;
+             }
+         }
+         
+         return node.data;
+    }
+}
