@@ -14,25 +14,14 @@ class Solution
          }
         
         node = head;
-         
-         if(size % 2 == 0)
-         {
-             n = size / 2 + 1;
-             while(i < n)
-             {
-                 node = node.next;
-                 i++;
-             }
-         }
-         else
-         {
-             n = size / 2 + 1;
-             while(i < n)
-             {
-                 node = node.next;
-                 i++;
-             }
-         }
+        
+        n = size / 2 + 1;
+        while(i < n)
+        {
+             node = node.next;
+             i++;
+        }
+        
          
          return node.data;
     }
