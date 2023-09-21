@@ -1,0 +1,41 @@
+class Solution {
+    // Function to return Breadth First Traversal of given graph.
+    public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+        // Code here
+        // Initialize a list to store the BFS traversal result.
+        ArrayList<Integer> bfsResult = new ArrayList<>();
+        
+        // Create a boolean array to keep track of visited vertices.
+        boolean[] visited = new boolean[V];
+        
+        // Create a queue for BFS.
+        Queue<Integer> queue = new LinkedList<>();
+        
+        // Start BFS from each vertex not visited yet (in case the graph is not connected).
+        // for (int i = 0; i < V; i++) {
+        //     if (!visited[i]) {
+                bfsFromVertex(0, adj, visited, queue, bfsResult);
+            // }
+        // }
+        
+        return bfsResult;
+    }
+    
+    // Helper function to perform BFS from a given vertex.
+    private void bfsFromVertex(int vertex, ArrayList<ArrayList<Integer>> adj, boolean[] visited, Queue<Integer> queue, ArrayList<Integer> bfsResult) {
+        visited[vertex] = true;
+        queue.offer(vertex);
+        
+        while (!queue.isEmpty()) {
+            int currentVertex = queue.poll();
+            bfsResult.add(currentVertex);
+            
+            for (int neighbor : adj.get(currentVertex)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.offer(neighbor);
+                }
+            }
+        }
+    }
+}
