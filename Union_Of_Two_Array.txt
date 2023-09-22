@@ -1,0 +1,23 @@
+class Solution{
+    public static int doUnion(int a[], int n, int b[], int m) 
+    {
+        //Your code here
+         TreeSet<Integer> set = new TreeSet<>();
+         
+        // Remove the duplicates from arr1[]
+        for (int i : a)
+            set.add(i);
+       
+        // Remove duplicates from arr2[]
+        for (int i : b)
+            set.add(i);
+       
+        // Loading set to array list
+        ArrayList<Integer> list
+            = new ArrayList<>();
+        for (int i : set)
+            list.add(i);
+ 
+        return list.size();
+    }
+}
