@@ -1,0 +1,59 @@
+class Solution {
+
+    
+    // a: input array
+    // n: size of array
+    // Function to find equilibrium point in the array.
+    public static int equilibriumPoint(long arr[], int n) {
+
+        // Your code here
+        
+        int sumOfLeft=0;
+        int sumOfRight=0;
+        
+        if(n==1)
+        return 1;
+        
+        // TIME COMPLEXITY WITH THIS O(N2)
+        
+        // for(int i=n-1; i>0; i--)
+        // {
+        //     sumOfRight += arr[i];
+        //     for(int j=0; j<i-1; j++)
+        //     {
+        //         sumOfLeft += arr[j];
+        //     }
+        //     if(sumOfLeft==sumOfRight)
+        //     {
+        //         return i;
+        //     }
+        //     else
+        //     {
+        //         sumOfLeft=0;
+        //     }
+        // }
+        
+        
+        // TIME COMPLEXITY WITH THIS IS O(N)
+        
+         for(int j=0; j<n; j++)
+        {
+            sumOfLeft += arr[j];
+        }
+        
+        for(int i=n-1; i>0; i--)
+        {
+            sumOfLeft -= arr[i];
+            
+            if(sumOfRight==sumOfLeft)
+            {
+                return i+1;
+            }
+            
+            sumOfRight+=arr[i];
+        }
+       
+
+        return -1;
+    }
+}
